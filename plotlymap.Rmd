@@ -1,0 +1,24 @@
+---
+title: "Plot with plotly"
+author: "Boodeo Nem"
+date: "2/2/2019"
+output:
+  ioslides_presentation: default
+  powerpoint_presentation: default
+  slidy_presentation: default
+---
+
+## Creating a web page presentation using R markdown and plotly
+This assignment uses the diamonds data from plotly in order to reconstruct the plots relating price to carat from a sample of 3000 diamonds. This will then be converted into an html page and hosted on githubs.
+
+## Date: 2 February 2019
+```{r, echo=FALSE, message=FALSE}
+set.seed(36)
+library(plotly)
+d <-diamonds[sample(nrow(diamonds), 3000), ]
+p <- ggplot(data = d, aes(x=carat, y = price)) + 
+         geom_point(aes(text = paste("Clarity:", clarity)),
+                    size = 4) + 
+         geom_smooth(aes(color = cut, fill = cut)) + facet_wrap(~ cut)
+print(p)
+``` 
