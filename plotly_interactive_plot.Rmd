@@ -1,0 +1,24 @@
+---
+title: "Plot created using plotly"
+author: "Boodeo Nem"
+date: "2/8/2019"
+output:
+  ioslides_presentation: default
+  powerpoint_presentation: default
+  slidy_presentation: default
+---
+
+## Creating a web page presentation using R markdown and plotly  
+This assignment uses the mt cars dataset in order to construct a plot relating horsepower(hp) to miles per gallon (mpg). Displacement has been used as a continuous variable showing different colors. This will then be converted into an interactive html page and hosted on githubs.The purpose of this assignment is to:
+
+- use plotly to create an interactive plot
+- post the plot to an html webpage  
+
+## Date: 8 February 2019  
+```{r, echo=FALSE, message=FALSE}
+set.seed(369)
+library(plotly)
+plot_ly(mtcars, x = ~hp, y = ~mpg, type = "scatter", color = ~disp)
+```
+
+
